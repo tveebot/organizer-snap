@@ -1,0 +1,30 @@
+name: tveebot-organizer
+version: '1.0+dev'
+summary: TVeeBot Organizer is a tool to automaticaly organize TV show files
+description: |
+  TVeeBot Organizer is a simple tool to organize your TV show content. It
+  monitors a directory for new video files corresponding to TV show episodes
+  and organizes them in structural way. The organization structure used helps
+  tools like Kodi and Plex to indentify your media content.
+
+grade: devel
+confinement: devmode
+
+apps:
+  tveebot-organizer:
+    command: bin/wrapper.sh
+    daemon: simple
+    restart-condition: always
+
+parts:
+  tveebot-organizer:
+    plugin: python
+    python-version: python3
+    source: https://github.com/tveebot/organizer.git
+    source-branch: 'develop'
+
+  wrapper:
+    plugin: dump
+    source: files/
+    prepare: |
+      chmod +x bin/wrapper.sh
