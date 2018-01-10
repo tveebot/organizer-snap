@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+# CONFIG FILE PATH
+CONFIG_FILE=$SNAP_DATA/config.ini
+
+watch_dir="$(snapctl get watch)"
+library_dir="$(snapctl get library)"
+
+echo "[watcher]" > $CONFIG_FILE
+echo "watch = $watch_dir" >> $CONFIG_FILE
+echo "[organizer]" >> $CONFIG_FILE
+echo "library = $library_dir" >> $CONFIG_FILE
+
+snapctl restart tveebot-organizer
