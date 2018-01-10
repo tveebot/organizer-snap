@@ -2,13 +2,18 @@
 set -e
 
 CONFIG_FILE=$SNAP_DATA/config.ini
+WATCH_DIR=$SNAP_COMMON/watch
+LIBRARY_DIR=$SNAP_COMMON/library
 
 # Create configuration file with default configurations
 echo "[watcher]" > $CONFIG_FILE
-echo "watch = $SNAP_COMMON/watch" >> $CONFIG_FILE
+echo "watch = $WATCH_DIR" >> $CONFIG_FILE
 echo "[organizer]" >> $CONFIG_FILE
-echo "library = $SNAP_COMMON/library" >> $CONFIG_FILE
+echo "library = $LIBRARY_DIR" >> $CONFIG_FILE
 
 # Create necessary directories
-mkdir -p $SNAP_COMMON/watch
-mkdir -p $SNAP_COMMON/library
+mkdir -p $WATCH_DIR
+mkdir -p $LIBRARY_DIR
+
+snapctl set watch=$WATCH_DIR
+snapctl set library=$LIBRARY_DIR
