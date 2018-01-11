@@ -1,5 +1,5 @@
 name: tveebot-organizer
-version: '1.0+dev'
+version: '0.2'
 summary: TVeeBot Organizer is a tool to automaticaly organize TV show files
 description: |
   TVeeBot Organizer is a simple tool to organize your TV show content. It
@@ -21,7 +21,7 @@ parts:
     plugin: python
     python-version: python3
     source: https://github.com/tveebot/organizer.git
-    source-branch: 'develop'
+    source-tag: 'v0.2'
 
   wrapper:
     plugin: dump
