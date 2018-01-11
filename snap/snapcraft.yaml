@@ -8,7 +8,7 @@ description: |
   tools like Kodi and Plex to indentify your media content.
 
 grade: devel
-confinement: classic
+confinement: devmode
 
 apps:
   tveebot-organizer:
